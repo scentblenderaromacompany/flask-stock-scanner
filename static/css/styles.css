@@ -1,0 +1,29 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+h1, h3 {
+    color: #343a40;
+}
+
+.navbar {
+    background-color: #007bff;
+}
+
+.navbar-brand {
+    color: #fff;
+}
+
+.table-striped {
+    background-color: #fff;
+}
+
+.btn-primary, .btn-secondary {
+    margin-right: 10px;
+}
+.table-striped {
+    background-color: #fff;
+    margin-top: 20px;
+}

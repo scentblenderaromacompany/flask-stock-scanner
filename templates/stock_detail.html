@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>{{ symbol }} Details</h1>
+<p>Predicted Price: {{ predicted_price | round(2) }}</p>
+<p>News Sentiment: {{ sentiment | round(2) }}</p>
+
+<h3>Historical Prices</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Close</th>
+            <th>Volume</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for index, row in hist.iterrows() %}
+            <tr>
+                <td>{{ index.strftime('%Y-%m-%d') }}</td>
+                <td>{{ row['Close'] }}</td>
+                <td>{{ row['Volume'] }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{{ url_for('index') }}" class="btn btn-secondary">Back to Watchlist</a>
+{% endblock %}

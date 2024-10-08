@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Welcome, {{ current_user.username }}</h1>
+<h3>Your Watchlist</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Stock Symbol</th>
+            <th>Added On</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for stock in watchlist %}
+            <tr>
+                <td><a href="{{ url_for('stock_detail', symbol=stock.stock_symbol) }}">{{ stock.stock_symbol }}</a></td>
+                <td>{{ stock.added_on.strftime('%Y-%m-%d') }}</td>
+                <td><a href="{{ url_for('delete_stock', stock_id=stock.id) }}" class="btn btn-danger btn-sm">Delete</a></td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{{ url_for('add_stock') }}" class="btn btn-primary">Add Stock</a>
+{% endblock %}
