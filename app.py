@@ -90,3 +90,20 @@ def portfolio_summary():
     stocks = ['AAPL', 'MSFT', 'GOOGL']  # Example stocks, replace with user's watchlist
     summary = simple_portfolio_summary(stocks)
     return render_template('portfolio.html', summary=summary)
+
+from portfolio import optimize_portfolio
+from ml_models import predict_stock_price
+
+@app.route('/optimize_portfolio')
+@login_required
+def optimize_portfolio_route():
+    stocks = ['AAPL', 'MSFT', 'GOOGL']  # Example stocks, replace with user's watchlist
+    portfolio = optimize_portfolio(stocks)
+    return render_template('portfolio.html', portfolio=portfolio)
+
+@app.route('/predict/<stock>', methods=['GET'])
+@login_required
+def predict(stock):
+    predicted_price = predict_stock_price(stock)
+    return render_template('prediction.html', stock=stock, predicted_price=predicted_price)
+

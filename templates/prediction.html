@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Predicted Stock Price for {{ stock }}</h1>
+<p>Predicted Close Price: {{ predicted_price | round(2) }} USD</p>
+<a href="{{ url_for('index') }}" class="btn btn-secondary">Back to Dashboard</a>
+{% endblock %}

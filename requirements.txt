@@ -4,3 +4,7 @@ Flask-WTF
 Flask-Login
 yfinance
 textblob
+scikit-learn
+pandas
+numpy
+matplotlib

@@ -1,23 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>Portfolio Summary</h1>
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Stock</th>
-            <th>Average Return (Annualized)</th>
-            <th>Risk (Standard Deviation)</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for stock, data in summary.items() %}
-        <tr>
-            <td>{{ stock }}</td>
-            <td>{{ data['average_return'] | round(2) }}%</td>
-            <td>{{ data['risk'] | round(2) }}%</td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+<h1>Optimized Portfolio</h1>
+<p>Expected Return: {{ portfolio['return'] | round(2) }}%</p>
+<p>Risk (Standard Deviation): {{ portfolio['risk'] | round(2) }}%</p>
+<p>Sharpe Ratio: {{ portfolio['sharpe_ratio'] | round(2) }}</p>
 <a href="{{ url_for('index') }}" class="btn btn-secondary">Back to Dashboard</a>
 {% endblock %}
